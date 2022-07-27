@@ -1,0 +1,19 @@
+<button (click)="goBack()">Back</button>
+<div *ngIf="donut">
+    <h2>{{ donut.name }}</h2>
+    <div *ngIf="donut.photo"><img id="imgS" src="{{donut.photo}}" alt="">
+    </div>
+    <div *ngIf="!donut.photo"><img id="imgS" src="{{donut.photo_attribution}}" alt="">
+    </div>
+    <p>
+      Calories: {{donut.calories}}
+    </p>
+    <p>
+      Extras: <span *ngFor="let type of donut.extras; last as last"><li>{{type}}</li></span>
+    </p>
+    <p>
+        <button (click)="addToCart()" >Add to Cart</button>
+      </p>
+  </div>
+  <div *ngIf="!donut">Loading...</div>
+  

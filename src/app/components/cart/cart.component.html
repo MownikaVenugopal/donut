@@ -1,0 +1,24 @@
+<div> <p [ngStyle]="{fontWeight:'bolder'}">My Cart <span [ngStyle]="{display:'inline-block',fontWeight:'normal'}" *ngIf="deck.length">({{deck.length}})</span></p></div>
+<table>
+   
+  <thead><td>Donut</td>
+  <td>Calories</td>
+   <td>Price</td>
+   <td>Quantity</td>
+  </thead>
+    <tbody>
+      <tr
+        *ngFor="let donut of deck; index as i ">
+     <td><a [routerLink]="['/details',donut.id]">{{ donut.name }}</a></td>
+     <td>{{donut.calories}}</td>
+     <td>{{donut.price}}</td>
+     <!-- <td><input type="number" [defaultValue]="1" value ={{donut.qty}} [min]="1" (change)="addQty(donut,$event.target)"/></td> -->
+    <td><button (click)="removeFromDeck(donut)">Remove</button>
+      </td>
+      </tr>
+      <!-- <td *ngIf="deck.length"> <button type="button" (click)="update(deck)">Update Cart</button></td> -->
+      <tr *ngIf="deck.length"><td>Total Calories</td><td>{{totalCal}}</td></tr>
+      <tr *ngIf="deck.length"><td>Total Price</td><td>{{totalAmt}}</td></tr>
+      
+    </tbody>
+</table>
